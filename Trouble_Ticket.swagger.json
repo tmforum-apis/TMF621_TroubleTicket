@@ -1,0 +1,924 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "title": "Trouble Ticket", 
+        "description": "This is Swagger UI environment generated for the TMF Trouble Ticket specification", 
+        "version": "2.0"
+    }, 
+    "host": "biologeek.orange-labs.fr", 
+    "basePath": "/tmf-api/troubleTicket/v2/", 
+    "schemes": [
+        "https"
+    ], 
+    "consumes": [
+        "application/json"
+    ], 
+    "produces": [
+        "application/json"
+    ], 
+    "paths": {
+        "/troubleTicket": {
+            "get": {
+                "operationId": "listTroubleTicket", 
+                "summary": "List or find 'Trouble Ticket' resources", 
+                "tags": [
+                    "Trouble Ticket"
+                ], 
+                "parameters": [
+                    {
+                        "type": "string", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "fields", 
+                        "description": "Comma separated properties to display in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "offset", 
+                        "description": "Requested index for start of resources to be provided in response"
+                    }, 
+                    {
+                        "type": "integer", 
+                        "required": false, 
+                        "in": "query", 
+                        "name": "limit", 
+                        "description": "Requested number of resources to be provided in response"
+                    } 
+
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Ok", 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/TroubleTicket"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "post": {
+                "operationId": "createTroubleTicket", 
+                "summary": "Creates a 'Trouble Ticket'", 
+                "tags": [
+                    "Trouble Ticket"
+                ], 
+                "parameters": [
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Ticket_Create"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "troubleTicket", 
+                        "description": "The Trouble Ticket to be created"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Trouble Ticket Created", 
+                        "schema": {
+                            "$ref": "#/definitions/TroubleTicket"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/ticket/{id}": {
+            "get": {
+                "operationId": "retrieveTroubleTicket", 
+                "summary": "Retrieves a 'Trouble Ticket' by Id", 
+                "tags": [
+                    "Trouble Ticket"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Trouble Ticket"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "Ok", 
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/TroubleTicket"
+                            }, 
+                            "type": "array"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "patch": {
+                "operationId": "patchTroubleTicket", 
+                "summary": "Updates partially a 'Trouble Ticket' by Id", 
+                "tags": [
+                    "Trouble Ticket"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Trouble Ticket"
+                    }, 
+                    {
+                        "schema": {
+                            "$ref": "#/definitions/Ticket_Update"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "name": "troubleTicket", 
+                        "description": "The Trouble Ticket to be updated"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Trouble Ticket Updated", 
+                        "schema": {
+                            "$ref": "#/definitions/TroubleTicket"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }, 
+            "delete": {
+                "operationId": "deleteTroubleTicket", 
+                "summary": "Deletes a 'Trouble Ticket' by Id", 
+                "tags": [
+                    "Trouble Ticket"
+                ], 
+                "parameters": [
+                    {
+                        "required": true, 
+                        "type": "string", 
+                        "name": "id", 
+                        "in": "path", 
+                        "description": "Identifier of the Ticket"
+                    }
+                ], 
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub": {
+            "post": {
+                "operationId": "registerListener", 
+                "summary": "Register a listener", 
+                "description": "Sets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "data", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscriptionInput"
+                        }, 
+                        "required": true, 
+                        "in": "body", 
+                        "description": "Data containing the callback endpoint to deliver the information"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Subscribed", 
+                        "schema": {
+                            "$ref": "#/definitions/EventSubscription"
+                        }
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/hub/{id}": {
+            "delete": {
+                "operationId": "unregisterListener", 
+                "summary": "Unregister a listener", 
+                "description": "Resets the communication endpoint address the service instance must use to deliver information about its health state, execution state, failures and metrics.", 
+                "tags": [
+                    "events subscription"
+                ], 
+                "parameters": [
+                    {
+                        "name": "id", 
+                        "type": "string", 
+                        "required": true, 
+                        "in": "path", 
+                        "description": "The id of the registered listener"
+                    }
+                ], 
+                "responses": {
+                    "201": {
+                        "description": "Unsubscribed"
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "500": {
+                        "description": "Internal Server Error", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+        "TroubleTicket": {
+            "type": "object", 
+            "description": "A Trouble Ticket is a record of an issue that is created, tracked, and managed by a Trouble Ticket Management system", 
+            "required": [
+                "description", 
+                "severity", 
+                "ticketType"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the trouble ticket"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Hyperlink, a reference to the trouble ticket entity"
+                }, 
+                "externalId": {
+                    "type": "string", 
+                    "description": "Additional identifier coming from an external system"
+                }, 
+                "ticketType": {
+                    "type": "string", 
+                    "description": "represent a business type of the ticket e.g. incident, complain, request"
+                }, 
+                "creationDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date on which the trouble ticket was created"
+                }, 
+                "lastUpdated": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date and time that the ticked was last updated"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the trouble"
+                }, 
+                "reason": {
+                    "type": "string", 
+                    "description": "The reason that the ticket opened by the party (e.g. Billing Ticket from type Dispute Usage Charge the reason can be Bad Quality)"
+                }, 
+                "severity": {
+                    "type": "string", 
+                    "description": "The severity of the issue. Indicate the implication of the issue on the expected functionality e.g. of a system, application, service etc.. \nSeverity values can be for example : Critical, Major, Minor"
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "The priority of the ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
+                }, 
+                "requestedResolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The resolution date requested by the user"
+                }, 
+                "expectedResolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The expected resolution date determined by the trouble ticket system"
+                }, 
+                "resolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date and time the trouble ticket was resolved"
+                }, 
+                "status": {
+                    "type": "string", 
+                    "description": "The current status of the Trouble Ticket"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type (class) of the resource. Here can be 'TroubleTicket'"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The (class) type of the trouble ticket. e.g. billingTicket, networkTicket, resourceTicket"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Link to the schema describing this REST resource"
+                }, 
+                "relatedEntity": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedEntityRef"
+                    }, 
+                    "description": "An entity that is related to the ticket such as a bill, a product, etc. The entity against which the ticket is associated."
+                }, 
+                "statusChange": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/StatusChange"
+                    }, 
+                    "description": "The status changehistory that are associated to the ticket."
+                }, 
+                "note": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Note"
+                    }, 
+                    "description": "The note(s) that are associated to the ticket."
+                }, 
+                "relatedParty": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedPartyRef"
+                    }, 
+                    "description": "The related party(ies) that are associated to the ticket."
+                }, 
+                "ticketRelationship": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/TicketRelationship"
+                    }, 
+                    "description": "A list of trouble ticket relationships (TroubleTicketRelationship [*]). Represents a relationship between trouble tickets"
+                }, 
+                "channel": {
+                    "$ref": "#/definitions/Channel"
+                }, 
+                "attachment": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }, 
+                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                }
+            }
+        }, 
+        "Ticket_Create": {
+            "type": "object", 
+            "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system\nSkipped properties: id,href", 
+            "required": [
+                "description", 
+                "severity", 
+                "ticketType"
+            ], 
+            "properties": {
+                "externalId": {
+                    "type": "string", 
+                    "description": "Additional identifier coming from an external system"
+                }, 
+                "ticketType": {
+                    "type": "string", 
+                    "description": "represent a business type of the ticket e.g. incident, complain, request"
+                }, 
+                "creationDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date on which the trouble ticket was created"
+                }, 
+                "lastUpdated": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date and time that the ticked was last updated"
+                }, 
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the trouble"
+                }, 
+                "reason": {
+                    "type": "string", 
+                    "description": "The reason that the ticket opened by the party (e.g. Billing Ticket from type Dispute Usage Charge the reason can be Bad Quality)"
+                }, 
+                "severity": {
+                    "type": "string", 
+                    "description": "The severity of the issue. Indicate the implication of the issue on the expected functionality e.g. of a system, application, service etc.. \nSeverity values can be for example : Critical, Major, Minor"
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "The priority of the ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
+                }, 
+                "requestedResolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The resolution date requested by the user"
+                }, 
+                "expectedResolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The expected resolution date determined by the trouble ticket system"
+                }, 
+                "resolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date and time the trouble ticket was resolved"
+                }, 
+                "status": {
+                    "type": "string", 
+                    "description": "The current status of the Trouble Ticket"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type (class) of the resource. Here can be 'TroubleTicket'"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The (class) type of the trouble ticket. e.g. billingTicket, networkTicket, resourceTicket"
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "Link to the schema describing this REST resource"
+                }, 
+                "relatedEntity": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedEntityRef"
+                    }, 
+                    "description": "An entity that is related to the ticket such as a bill, a product, etc. The entity against which the ticket is associated."
+                }, 
+                "note": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Note"
+                    }, 
+                    "description": "The note(s) that are associated to the ticket."
+                }, 
+                "relatedParty": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedPartyRef"
+                    }, 
+                    "description": "The related party(ies) that are associated to the ticket."
+                }, 
+                "ticketRelationship": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/TicketRelationship"
+                    }, 
+                    "description": "A list of trouble ticket relationships (TroubleTicketRelationship [*]). Represents a relationship between trouble tickets"
+                }, 
+                "channel": {
+                    "$ref": "#/definitions/Channel"
+                }, 
+                "attachment": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }, 
+                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                }
+            }
+        }, 
+        "Ticket_Update": {
+            "type": "object", 
+            "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system\nSkipped properties: id,href,id,href,creationDate", 
+            "properties": {
+                "externalId": {
+                    "type": "string", 
+                    "description": "Additional identifier coming from an external system"
+                }, 
+                "ticketType": {
+                    "type": "string", 
+                    "description": "represent a business type of the ticket e.g. incident, complain, request"
+                }, 
+ 
+                "description": {
+                    "type": "string", 
+                    "description": "Description of the trouble"
+                }, 
+                "reason": {
+                    "type": "string", 
+                    "description": "The reason that the ticket opened by the party (e.g. Billing Ticket from type Dispute Usage Charge the reason can be Bad Quality)"
+                }, 
+                "severity": {
+                    "type": "string", 
+                    "description": "The severity of the issue. Indicate the implication of the issue on the expected functionality e.g. of a system, application, service etc.. \nSeverity values can be for example : Critical, Major, Minor"
+                }, 
+                "priority": {
+                    "type": "string", 
+                    "description": "The priority of the ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
+                }, 
+                "requestedResolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The resolution date requested by the user"
+                }, 
+                "expectedResolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The expected resolution date determined by the trouble ticket system"
+                }, 
+                "resolutionDate": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "The date and time the trouble ticket was resolved"
+                }, 
+                "status": {
+                    "type": "string", 
+                    "description": "The current status of the Trouble Ticket"
+                }, 
+
+                "relatedEntity": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedEntityRef"
+                    }, 
+                    "description": "An entity that is related to the ticket such as a bill, a product, etc. The entity against which the ticket is associated."
+                }, 
+ 
+                "note": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Note"
+                    }, 
+                    "description": "The note(s) that are associated to the ticket."
+                }, 
+                "relatedParty": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/RelatedPartyRef"
+                    }, 
+                    "description": "The related party(ies) that are associated to the ticket."
+                }, 
+                "ticketRelationship": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/TicketRelationship"
+                    }, 
+                    "description": "A list of trouble ticket relationships (TroubleTicketRelationship [*]). Represents a relationship between trouble tickets"
+                }, 
+                "channel": {
+                    "$ref": "#/definitions/Channel"
+                }, 
+                "attachment": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }, 
+                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                }
+            }
+        }, 
+        "RelatedEntityRef": {
+            "type": "object", 
+            "description": "Represents a relationship between Trouble Tickets", 
+            "properties": {
+                "herf": {
+                    "type": "string", 
+                    "description": "The hyperlink to access an entity."
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "The identifier of an entity."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "The name of an entity."
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "StatusChange": {
+            "type": "object", 
+            "description": "Holds the status notification reasons and associated date the status changed", 
+            "properties": {
+                "status": {
+                    "type": "string", 
+                    "description": "The status of the trouble ticket"
+                }, 
+                "changeReason": {
+                    "type": "string", 
+                    "description": "The reason why the status changed."
+                }, 
+                "changeDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time the status changed"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "Note": {
+            "type": "object", 
+            "description": "Extra information about a given entity", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Identifier of the note"
+                }, 
+                "date": {
+                    "type": "string", 
+                    "format": "date-time", 
+                    "description": "Date of the note"
+                }, 
+                "author": {
+                    "type": "string", 
+                    "description": "Author of the note"
+                }, 
+                "text": {
+                    "type": "string", 
+                    "description": "Text of the note"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "RelatedPartyRef": {
+            "type": "object", 
+            "description": "RelatedParty reference. A related party defines party or party role linked to a specific entity.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of a related party"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the related party, could be a party reference or a party role reference"
+                }, 
+                "role": {
+                    "type": "string", 
+                    "description": "Role of the related party."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the related party"
+                }, 
+                "@referredType": {
+                    "type": "string", 
+                    "description": "The actual type of the target instance when needed for disambiguation."
+                }
+            }
+        }, 
+        "TicketRelationship": {
+            "type": "object", 
+            "description": "Represents a relationship between trouble tickets", 
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/", 
+                    "description": "Type of the trouble ticket relationship can be isChiled, dependent etc..."
+                }, 
+                "ticket": {
+                    "$ref": "#/definitions/TicketRef"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+        "Channel": {
+            "type": "object", 
+            "description": "Channel reference. The channel defines the channel for selling product offerings.", 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the channel"
+                }, 
+ 
+                "name": {
+                    "type": "string", 
+                    "description": "Name of the channel"
+                }, 
+ 
+                "@type": {
+                    "type": "string", 
+                    "description": "Indicates the (class) type of chanel"
+                }
+            }
+        }, 
+        "Attachment": {
+            "type": "object", 
+            "description": "Complements the description of an element (for instance a product) through video, pictures...", 
+            "properties": {
+                "description": {
+                    "type": "string", 
+                    "description": "A narrative text describing the content of the attachment"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the attachment"
+                }, 
+                "id": {
+                    "type": "string", 
+                    "description": "Unique identifier of the attachment"
+                }, 
+                "url": {
+                    "type": "string", 
+                    "description": "Uniform Resource Locator, is a web page address (a subset of URI)"
+                }, 
+                "mimeType": {
+                    "type": "string", 
+                    "description": "The mime type of the document as defined in RFC 2045 and RFC 2046 specifications."
+                }, 
+                "path": {
+                    "type": "string", 
+                    "description": "The path of the attached file"
+                }, 
+                "size": {
+                    "type": "integer", 
+                    "description": "The size of the file (sizeUnit if present indicates the unit, otherwise kilobytes is the default)."
+                }, 
+                "name": {
+                    "type": "string", 
+                    "description": "The name of the file"
+                }, 
+                "sizeUnit": {
+                    "type": "integer", 
+                    "description": "The unit size for expressing the size of the file (MB,kB...)"
+                }, 
+                "validFor": {
+                    "$ref": "#/definitions/TimePeriod", 
+                    "description": "Period of validity of the attachment"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
+                }
+            }
+        }, 
+ 
+        "EventSubscription": {
+            "required": [
+                "id", 
+                "callback"
+            ], 
+            "properties": {
+                "id": {
+                    "type": "string", 
+                    "description": "Id of the listener"
+                }, 
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "EventSubscriptionInput": {
+            "required": [
+                "callback"
+            ], 
+            "properties": {
+                "callback": {
+                    "type": "string", 
+                    "description": "The callback being registered."
+                }, 
+                "query": {
+                    "type": "string", 
+                    "description": "additional data to be passed"
+                }
+            }
+        }, 
+        "Error": {
+            "required": [
+                "code", 
+                "reason"
+            ], 
+            "properties": {
+                "code": {
+                    "type": "integer", 
+                    "description": "Application related code."
+                }, 
+                "reason": {
+                    "type": "integer", 
+                    "description": "Text that explains the reason for error."
+                }, 
+                "message": {
+                    "type": "string", 
+                    "description": "(optional) Text that provide more details and corrective actions related to the error."
+                }, 
+                "status": {
+                    "type": "integer", 
+                    "description": "(optional) http error code extension like 400-2"
+                }, 
+                "referenceError": {
+                    "type": "string", 
+                    "description": "(optional) A URL to online documentation that provides more information about the error."
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "(optional) The class type of a REST resource."
+                }, 
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "(optional) A link to the schema describing a REST resource."
+                }
+            }
+        }
+    }
+}
