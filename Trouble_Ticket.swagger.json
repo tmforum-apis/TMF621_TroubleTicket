@@ -5,7 +5,7 @@
         "description": "This is Swagger UI environment generated for the TMF Trouble Ticket specification", 
         "version": "2.0"
     }, 
-    "host": "biologeek.orange-labs.fr", 
+    "host": "serverRoot", 
     "basePath": "/tmf-api/troubleTicket/v2/", 
     "schemes": [
         "https"
@@ -20,9 +20,9 @@
         "/troubleTicket": {
             "get": {
                 "operationId": "listTroubleTicket", 
-                "summary": "List or find 'Trouble Ticket' resources", 
+                "summary": "List or find 'TroubleTicket' objects", 
                 "tags": [
-                    "Trouble Ticket"
+                    "troubleTicket"
                 ], 
                 "parameters": [
                     {
@@ -45,8 +45,7 @@
                         "in": "query", 
                         "name": "limit", 
                         "description": "Requested number of resources to be provided in response"
-                    } 
-
+                    }
                 ], 
                 "responses": {
                     "200": {
@@ -60,6 +59,36 @@
                     }, 
                     "400": {
                         "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -74,14 +103,14 @@
             }, 
             "post": {
                 "operationId": "createTroubleTicket", 
-                "summary": "Creates a 'Trouble Ticket'", 
+                "summary": "Creates a 'TroubleTicket'", 
                 "tags": [
-                    "Trouble Ticket"
+                    "troubleTicket"
                 ], 
                 "parameters": [
                     {
                         "schema": {
-                            "$ref": "#/definitions/Ticket_Create"
+                            "$ref": "#/definitions/TroubleTicket_Create"
                         }, 
                         "required": true, 
                         "in": "body", 
@@ -91,13 +120,43 @@
                 ], 
                 "responses": {
                     "201": {
-                        "description": "Trouble Ticket Created", 
+                        "description": "Created", 
                         "schema": {
                             "$ref": "#/definitions/TroubleTicket"
                         }
                     }, 
                     "400": {
                         "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -111,12 +170,12 @@
                 }
             }
         }, 
-        "/ticket/{id}": {
+        "/troubleTicket/{id}": {
             "get": {
                 "operationId": "retrieveTroubleTicket", 
-                "summary": "Retrieves a 'Trouble Ticket' by Id", 
+                "summary": "Retrieves a 'TroubleTicket' by Id", 
                 "tags": [
-                    "Trouble Ticket"
+                    "troubleTicket"
                 ], 
                 "parameters": [
                     {
@@ -143,8 +202,32 @@
                             "$ref": "#/definitions/Error"
                         }
                     }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
                     "404": {
                         "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -159,9 +242,9 @@
             }, 
             "patch": {
                 "operationId": "patchTroubleTicket", 
-                "summary": "Updates partially a 'Trouble Ticket' by Id", 
+                "summary": "Updates partially a 'TroubleTicket' by Id", 
                 "tags": [
-                    "Trouble Ticket"
+                    "troubleTicket"
                 ], 
                 "parameters": [
                     {
@@ -173,7 +256,7 @@
                     }, 
                     {
                         "schema": {
-                            "$ref": "#/definitions/Ticket_Update"
+                            "$ref": "#/definitions/TroubleTicket_Update"
                         }, 
                         "required": true, 
                         "in": "body", 
@@ -182,8 +265,8 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
-                        "description": "Trouble Ticket Updated", 
+                    "200": {
+                        "description": "Updated", 
                         "schema": {
                             "$ref": "#/definitions/TroubleTicket"
                         }
@@ -194,8 +277,32 @@
                             "$ref": "#/definitions/Error"
                         }
                     }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
                     "404": {
                         "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -210,9 +317,9 @@
             }, 
             "delete": {
                 "operationId": "deleteTroubleTicket", 
-                "summary": "Deletes a 'Trouble Ticket' by Id", 
+                "summary": "Deletes a 'TroubleTicket' by Id", 
                 "tags": [
-                    "Trouble Ticket"
+                    "troubleTicket"
                 ], 
                 "parameters": [
                     {
@@ -220,7 +327,7 @@
                         "type": "string", 
                         "name": "id", 
                         "in": "path", 
-                        "description": "Identifier of the Ticket"
+                        "description": "Identifier of the Trouble Ticket"
                     }
                 ], 
                 "responses": {
@@ -233,8 +340,32 @@
                             "$ref": "#/definitions/Error"
                         }
                     }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
                     "404": {
                         "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -274,14 +405,44 @@
                             "$ref": "#/definitions/EventSubscription"
                         }
                     }, 
+                    "405": {
+                        "description": "Method Not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "404": {
+                        "description": "Not Found", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
                     "500": {
                         "description": "Internal Server Error", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
                     }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
                     "400": {
                         "description": "Bad Request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "409": {
+                        "description": "Conflict", 
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -307,8 +468,14 @@
                     }
                 ], 
                 "responses": {
-                    "201": {
-                        "description": "Unsubscribed"
+                    "204": {
+                        "description": "Deleted"
+                    }, 
+                    "405": {
+                        "description": "Method not allowed", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
                     }, 
                     "404": {
                         "description": "Not Found", 
@@ -316,8 +483,23 @@
                             "$ref": "#/definitions/Error"
                         }
                     }, 
-                    "204": {
-                        "description": "Deleted"
+                    "403": {
+                        "description": "Forbidden", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "401": {
+                        "description": "Unauthorized", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }, 
+                    "400": {
+                        "description": "Bad request", 
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
                     }, 
                     "500": {
                         "description": "Internal Server Error", 
@@ -332,7 +514,7 @@
     "definitions": {
         "TroubleTicket": {
             "type": "object", 
-            "description": "A Trouble Ticket is a record of an issue that is created, tracked, and managed by a Trouble Ticket Management system", 
+            "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system", 
             "required": [
                 "description", 
                 "severity", 
@@ -353,7 +535,7 @@
                 }, 
                 "ticketType": {
                     "type": "string", 
-                    "description": "represent a business type of the ticket e.g. incident, complain, request"
+                    "description": "represent a business type of the trouble ticket e.g. incident, complain, request"
                 }, 
                 "creationDate": {
                     "type": "string", 
@@ -363,15 +545,11 @@
                 "lastUpdated": {
                     "type": "string", 
                     "format": "date-time", 
-                    "description": "The date and time that the ticked was last updated"
+                    "description": "The date and time that the trouble ticked was last updated"
                 }, 
                 "description": {
                     "type": "string", 
-                    "description": "Description of the trouble"
-                }, 
-                "reason": {
-                    "type": "string", 
-                    "description": "The reason that the ticket opened by the party (e.g. Billing Ticket from type Dispute Usage Charge the reason can be Bad Quality)"
+                    "description": "Description of the trouble or issue"
                 }, 
                 "severity": {
                     "type": "string", 
@@ -379,7 +557,7 @@
                 }, 
                 "priority": {
                     "type": "string", 
-                    "description": "The priority of the ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
+                    "description": "The priority of the trouble ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
                 }, 
                 "requestedResolutionDate": {
                     "type": "string", 
@@ -398,15 +576,19 @@
                 }, 
                 "status": {
                     "type": "string", 
-                    "description": "The current status of the Trouble Ticket"
+                    "description": "The current status of the trouble ticket"
                 }, 
-                "@baseType": {
+                "statusChangeReason": {
                     "type": "string", 
-                    "description": "The base type (class) of the resource. Here can be 'TroubleTicket'"
+                    "description": "The reason for changing the status"
                 }, 
                 "@type": {
                     "type": "string", 
                     "description": "The (class) type of the trouble ticket. e.g. billingTicket, networkTicket, resourceTicket"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type (class) of the resource. Here can be 'TroubleTicket'"
                 }, 
                 "@schemaLocation": {
                     "type": "string", 
@@ -419,12 +601,23 @@
                     }, 
                     "description": "An entity that is related to the ticket such as a bill, a product, etc. The entity against which the ticket is associated."
                 }, 
+                "attachment": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }, 
+                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                }, 
+                "channel": {
+                    "$ref": "#/definitions/Channel", 
+                    "description": "The channel that origin the trouble ticket"
+                }, 
                 "statusChange": {
                     "type": "array", 
                     "items": {
                         "$ref": "#/definitions/StatusChange"
                     }, 
-                    "description": "The status changehistory that are associated to the ticket."
+                    "description": "The status change history that are associated to the ticket.Populated by the server"
                 }, 
                 "note": {
                     "type": "array", 
@@ -446,20 +639,10 @@
                         "$ref": "#/definitions/TicketRelationship"
                     }, 
                     "description": "A list of trouble ticket relationships (TroubleTicketRelationship [*]). Represents a relationship between trouble tickets"
-                }, 
-                "channel": {
-                    "$ref": "#/definitions/Channel"
-                }, 
-                "attachment": {
-                    "type": "array", 
-                    "items": {
-                        "$ref": "#/definitions/Attachment"
-                    }, 
-                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
                 }
             }
         }, 
-        "Ticket_Create": {
+        "TroubleTicket_Create": {
             "type": "object", 
             "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system\nSkipped properties: id,href", 
             "required": [
@@ -474,7 +657,7 @@
                 }, 
                 "ticketType": {
                     "type": "string", 
-                    "description": "represent a business type of the ticket e.g. incident, complain, request"
+                    "description": "represent a business type of the trouble ticket e.g. incident, complain, request"
                 }, 
                 "creationDate": {
                     "type": "string", 
@@ -484,15 +667,11 @@
                 "lastUpdated": {
                     "type": "string", 
                     "format": "date-time", 
-                    "description": "The date and time that the ticked was last updated"
+                    "description": "The date and time that the trouble ticked was last updated"
                 }, 
                 "description": {
                     "type": "string", 
-                    "description": "Description of the trouble"
-                }, 
-                "reason": {
-                    "type": "string", 
-                    "description": "The reason that the ticket opened by the party (e.g. Billing Ticket from type Dispute Usage Charge the reason can be Bad Quality)"
+                    "description": "Description of the trouble or issue"
                 }, 
                 "severity": {
                     "type": "string", 
@@ -500,7 +679,7 @@
                 }, 
                 "priority": {
                     "type": "string", 
-                    "description": "The priority of the ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
+                    "description": "The priority of the trouble ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
                 }, 
                 "requestedResolutionDate": {
                     "type": "string", 
@@ -519,15 +698,19 @@
                 }, 
                 "status": {
                     "type": "string", 
-                    "description": "The current status of the Trouble Ticket"
+                    "description": "The current status of the trouble ticket"
                 }, 
-                "@baseType": {
+                "statusChangeReason": {
                     "type": "string", 
-                    "description": "The base type (class) of the resource. Here can be 'TroubleTicket'"
+                    "description": "The reason for changing the status"
                 }, 
                 "@type": {
                     "type": "string", 
                     "description": "The (class) type of the trouble ticket. e.g. billingTicket, networkTicket, resourceTicket"
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type (class) of the resource. Here can be 'TroubleTicket'"
                 }, 
                 "@schemaLocation": {
                     "type": "string", 
@@ -540,6 +723,24 @@
                     }, 
                     "description": "An entity that is related to the ticket such as a bill, a product, etc. The entity against which the ticket is associated."
                 }, 
+                "attachment": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }, 
+                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                }, 
+                "channel": {
+                    "$ref": "#/definitions/Channel", 
+                    "description": "The channel that origin the trouble ticket"
+                }, 
+                "statusChange": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/StatusChange"
+                    }, 
+                    "description": "The status change history that are associated to the ticket.Populated by the server"
+                }, 
                 "note": {
                     "type": "array", 
                     "items": {
@@ -560,22 +761,12 @@
                         "$ref": "#/definitions/TicketRelationship"
                     }, 
                     "description": "A list of trouble ticket relationships (TroubleTicketRelationship [*]). Represents a relationship between trouble tickets"
-                }, 
-                "channel": {
-                    "$ref": "#/definitions/Channel"
-                }, 
-                "attachment": {
-                    "type": "array", 
-                    "items": {
-                        "$ref": "#/definitions/Attachment"
-                    }, 
-                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
                 }
             }
         }, 
-        "Ticket_Update": {
+        "TroubleTicket_Update": {
             "type": "object", 
-            "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system\nSkipped properties: id,href,id,href,creationDate", 
+            "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system\nSkipped properties: id,href,id,href,creationDate,lastUpdated,statusChange,@baseType,@type,@schemaLocation", 
             "properties": {
                 "externalId": {
                     "type": "string", 
@@ -583,16 +774,11 @@
                 }, 
                 "ticketType": {
                     "type": "string", 
-                    "description": "represent a business type of the ticket e.g. incident, complain, request"
+                    "description": "represent a business type of the trouble ticket e.g. incident, complain, request"
                 }, 
- 
                 "description": {
                     "type": "string", 
-                    "description": "Description of the trouble"
-                }, 
-                "reason": {
-                    "type": "string", 
-                    "description": "The reason that the ticket opened by the party (e.g. Billing Ticket from type Dispute Usage Charge the reason can be Bad Quality)"
+                    "description": "Description of the trouble or issue"
                 }, 
                 "severity": {
                     "type": "string", 
@@ -600,7 +786,7 @@
                 }, 
                 "priority": {
                     "type": "string", 
-                    "description": "The priority of the ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
+                    "description": "The priority of the trouble ticket and how quickly the issue should be resolved. Example: Critical, High, Medium, Low. The value is set by the ticket management system considering the severity, ticket type etc..."
                 }, 
                 "requestedResolutionDate": {
                     "type": "string", 
@@ -619,9 +805,12 @@
                 }, 
                 "status": {
                     "type": "string", 
-                    "description": "The current status of the Trouble Ticket"
+                    "description": "The current status of the trouble ticket"
                 }, 
-
+                "statusChangeReason": {
+                    "type": "string", 
+                    "description": "The reason for changing the status"
+                }, 
                 "relatedEntity": {
                     "type": "array", 
                     "items": {
@@ -629,7 +818,17 @@
                     }, 
                     "description": "An entity that is related to the ticket such as a bill, a product, etc. The entity against which the ticket is associated."
                 }, 
- 
+                "attachment": {
+                    "type": "array", 
+                    "items": {
+                        "$ref": "#/definitions/Attachment"
+                    }, 
+                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                }, 
+                "channel": {
+                    "$ref": "#/definitions/Channel", 
+                    "description": "The channel that origin the trouble ticket"
+                }, 
                 "note": {
                     "type": "array", 
                     "items": {
@@ -651,60 +850,128 @@
                     }, 
                     "description": "A list of trouble ticket relationships (TroubleTicketRelationship [*]). Represents a relationship between trouble tickets"
                 }, 
-                "channel": {
-                    "$ref": "#/definitions/Channel"
+                "@type": {
+                    "type": "string", 
+                    "description": "The class type of the actual resource (for type extension)."
                 }, 
-                "attachment": {
-                    "type": "array", 
-                    "items": {
-                        "$ref": "#/definitions/Attachment"
-                    }, 
-                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                "@schemaLocation": {
+                    "type": "string", 
+                    "description": "A link to the schema describing a resource (for type extension)."
+                }, 
+                "@baseType": {
+                    "type": "string", 
+                    "description": "The base type for use in polymorphic collections"
                 }
             }
         }, 
         "RelatedEntityRef": {
             "type": "object", 
-            "description": "Represents a relationship between Trouble Tickets", 
+            "description": "Related Entity reference. Reference to an arbitrary entity from a context entity.", 
             "properties": {
-                "herf": {
-                    "type": "string", 
-                    "description": "The hyperlink to access an entity."
+                "id": {
+                    "$ref": "#/definitions/", 
+                    "description": "Unique identifier of the related entity"
                 }, 
+                "href": {
+                    "$ref": "#/definitions/", 
+                    "description": "Hyperlink, a reference to the related entity (e.g. customerBill, productOrder, etc.)"
+                }, 
+                "name": {
+                    "$ref": "#/definitions/", 
+                    "description": "The name of the related entity if applicable (e.g. name of the customer, name of the bill, name of the product etc...)"
+                }, 
+                "role": {
+                    "$ref": "#/definitions/", 
+                    "description": "The role of the related entity in the context of the contained resource (e.g. disputedBill, damagedDevice"
+                }, 
+                "@referredType": {
+                    "$ref": "#/definitions/", 
+                    "description": "A string. Indicates the type (class) of related entity. For example, Product Order Customer Bill, Payment, etc."
+                }
+            }
+        }, 
+        "Attachment": {
+            "type": "object", 
+            "description": "Attachment refers to extensions or additional parts that is or may be attached to something (agreements, contracts, appointments) to perform a particular function. They can be communication attachments, documents and other.", 
+            "properties": {
                 "id": {
                     "type": "string", 
-                    "description": "The identifier of an entity."
+                    "description": "Identifier of the binary attachment"
+                }, 
+                "href": {
+                    "type": "string", 
+                    "description": "Reference of the attached document"
+                }, 
+                "size": {
+                    "$ref": "#/definitions/Decimal", 
+                    "description": "The size in Bytes of the of the document or attachment. If this component contains the embedded data then the size is the size of the embedded data; if it is a reference without the data then it is the size of the referenced document."
                 }, 
                 "name": {
                     "type": "string", 
-                    "description": "The name of an entity."
+                    "description": "name of the binary attachment"
                 }, 
-                "@referredType": {
+                "description": {
                     "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
+                    "description": "the description of the binary attachment"
+                }, 
+                "sizeUnit": {
+                    "type": "string", 
+                    "description": "The unit of measure for the size"
+                }, 
+                "mimeType": {
+                    "type": "string", 
+                    "description": "mimeType of the Attachement ( e,g application/pdf)"
+                }, 
+                "url": {
+                    "type": "string", 
+                    "description": "URL of the Attachment"
+                }, 
+                "validFor": {
+                    "$ref": "#/definitions/TimePeriod", 
+                    "description": "validity period of the Attachment"
+                }, 
+                "@type": {
+                    "type": "string", 
+                    "description": "Indicates the (class) type of the attachment."
+                }
+            }
+        }, 
+        "Channel": {
+            "type": "object", 
+            "description": "The communication channel for example WEB, Call Center", 
+            "properties": {
+                "id": {
+                    "$ref": "#/definitions/", 
+                    "description": "Unique identifier of the channel"
+                }, 
+                "name": {
+                    "$ref": "#/definitions/", 
+                    "description": "The name of the channel"
+                }, 
+                "@type": {
+                    "$ref": "#/definitions/", 
+                    "description": "Indicates the (class) type of channel"
                 }
             }
         }, 
         "StatusChange": {
             "type": "object", 
-            "description": "Holds the status notification reasons and associated date the status changed", 
+            "description": "Holds the status notification reasons and associated date the status changed, populated by the server", 
             "properties": {
                 "status": {
-                    "type": "string", 
+                    "$ref": "#/definitions/", 
                     "description": "The status of the trouble ticket"
                 }, 
                 "changeReason": {
-                    "type": "string", 
+                    "$ref": "#/definitions/", 
                     "description": "The reason why the status changed."
                 }, 
                 "changeDate": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The date and time the status changed"
+                    "$ref": "#/definitions/", 
+                    "description": "The date and time the status changed."
                 }, 
                 "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
+                    "$ref": "#/definitions/"
                 }
             }
         }, 
@@ -713,25 +980,24 @@
             "description": "Extra information about a given entity", 
             "properties": {
                 "id": {
-                    "type": "string", 
-                    "description": "Identifier of the note"
+                    "$ref": "#/definitions/", 
+                    "description": "Quick identifier of the note"
                 }, 
                 "date": {
-                    "type": "string", 
-                    "format": "date-time", 
-                    "description": "Date of the note"
-                }, 
-                "author": {
-                    "type": "string", 
-                    "description": "Author of the note"
+                    "$ref": "#/definitions/", 
+                    "description": "The date that the note created"
                 }, 
                 "text": {
-                    "type": "string", 
-                    "description": "Text of the note"
+                    "$ref": "#/definitions/", 
+                    "description": "The text of the note"
+                }, 
+                "author": {
+                    "$ref": "#/definitions/", 
+                    "description": "The name of the note author, can be the agent name or any other party that created the note"
                 }, 
                 "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
+                    "$ref": "#/definitions/", 
+                    "description": "Indicates the (class) type of note"
                 }
             }
         }, 
@@ -757,7 +1023,7 @@
                 }, 
                 "@referredType": {
                     "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
+                    "description": "A string. Indicates the type (class) of related party. For example, Organization or Individual (if party), Customer, Supplier, etc. (if party role)."
                 }
             }
         }, 
@@ -765,90 +1031,24 @@
             "type": "object", 
             "description": "Represents a relationship between trouble tickets", 
             "properties": {
+                "id": {
+                    "$ref": "#/definitions/", 
+                    "description": "Unique identifier of the related trouble ticket"
+                }, 
+                "href": {
+                    "$ref": "#/definitions/", 
+                    "description": "Hyperlink, a reference to the related trouble ticket entity"
+                }, 
                 "type": {
                     "$ref": "#/definitions/", 
                     "description": "Type of the trouble ticket relationship can be isChiled, dependent etc..."
                 }, 
-                "ticket": {
-                    "$ref": "#/definitions/TicketRef"
-                }, 
                 "@type": {
                     "type": "string", 
                     "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
-        "Channel": {
-            "type": "object", 
-            "description": "Channel reference. The channel defines the channel for selling product offerings.", 
-            "properties": {
-                "id": {
-                    "type": "string", 
-                    "description": "Unique identifier of the channel"
-                }, 
- 
-                "name": {
-                    "type": "string", 
-                    "description": "Name of the channel"
-                }, 
- 
-                "@type": {
-                    "type": "string", 
-                    "description": "Indicates the (class) type of chanel"
-                }
-            }
-        }, 
-        "Attachment": {
-            "type": "object", 
-            "description": "Complements the description of an element (for instance a product) through video, pictures...", 
-            "properties": {
-                "description": {
-                    "type": "string", 
-                    "description": "A narrative text describing the content of the attachment"
-                }, 
-                "href": {
-                    "type": "string", 
-                    "description": "Reference of the attachment"
-                }, 
-                "id": {
-                    "type": "string", 
-                    "description": "Unique identifier of the attachment"
-                }, 
-                "url": {
-                    "type": "string", 
-                    "description": "Uniform Resource Locator, is a web page address (a subset of URI)"
-                }, 
-                "mimeType": {
-                    "type": "string", 
-                    "description": "The mime type of the document as defined in RFC 2045 and RFC 2046 specifications."
-                }, 
-                "path": {
-                    "type": "string", 
-                    "description": "The path of the attached file"
-                }, 
-                "size": {
-                    "type": "integer", 
-                    "description": "The size of the file (sizeUnit if present indicates the unit, otherwise kilobytes is the default)."
-                }, 
-                "name": {
-                    "type": "string", 
-                    "description": "The name of the file"
-                }, 
-                "sizeUnit": {
-                    "type": "integer", 
-                    "description": "The unit size for expressing the size of the file (MB,kB...)"
-                }, 
-                "validFor": {
-                    "$ref": "#/definitions/TimePeriod", 
-                    "description": "Period of validity of the attachment"
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
-                }
-            }
-        }, 
- 
         "EventSubscription": {
             "required": [
                 "id", 
