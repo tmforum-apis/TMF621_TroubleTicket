@@ -2,7 +2,7 @@
     "swagger": "2.0", 
     "info": {
         "title": "Trouble Ticket", 
-        "description": "This is Swagger UI environment generated for the TMF Trouble Ticket Management specification", 
+        "description": "This is Swagger UI environment generated for the TMF Trouble Ticket specification", 
         "version": "2.0"
     }, 
     "host": "serverRoot", 
@@ -379,443 +379,6 @@
                 }
             }
         }, 
-        "/attachmentRef": {
-            "get": {
-                "operationId": "listAttachmentRef", 
-                "summary": "List or find 'AttachmentRef' objects", 
-                "tags": [
-                    "attachmentRef"
-                ], 
-                "parameters": [
-                    {
-                        "type": "string", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "fields", 
-                        "description": "Comma separated properties to display in response"
-                    }, 
-                    {
-                        "type": "integer", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "offset", 
-                        "description": "Requested index for start of resources to be provided in response"
-                    }, 
-                    {
-                        "type": "integer", 
-                        "required": false, 
-                        "in": "query", 
-                        "name": "limit", 
-                        "description": "Requested number of resources to be provided in response"
-                    }
-                ], 
-                "responses": {
-                    "200": {
-                        "description": "Ok", 
-                        "schema": {
-                            "items": {
-                                "$ref": "#/definitions/AttachmentRef"
-                            }, 
-                            "type": "array"
-                        }
-                    }, 
-                    "400": {
-                        "description": "Bad Request", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "401": {
-                        "description": "Unauthorized", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "403": {
-                        "description": "Forbidden", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "404": {
-                        "description": "Not Found", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "405": {
-                        "description": "Method Not allowed", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "409": {
-                        "description": "Conflict", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "500": {
-                        "description": "Internal Server Error", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }, 
-            "post": {
-                "operationId": "createAttachmentRef", 
-                "summary": "Creates a 'AttachmentRef'", 
-                "tags": [
-                    "attachmentRef"
-                ], 
-                "parameters": [
-                    {
-                        "schema": {
-                            "$ref": "#/definitions/AttachmentRef_Create"
-                        }, 
-                        "required": true, 
-                        "in": "body", 
-                        "name": "attachmentRef", 
-                        "description": "The Attachment Ref to be created"
-                    }
-                ], 
-                "responses": {
-                    "201": {
-                        "description": "Created", 
-                        "schema": {
-                            "$ref": "#/definitions/AttachmentRef"
-                        }
-                    }, 
-                    "400": {
-                        "description": "Bad Request", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "401": {
-                        "description": "Unauthorized", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "403": {
-                        "description": "Forbidden", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "404": {
-                        "description": "Not Found", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "405": {
-                        "description": "Method Not allowed", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "409": {
-                        "description": "Conflict", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "500": {
-                        "description": "Internal Server Error", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        }, 
-        "/attachmentRef/{id}": {
-            "get": {
-                "operationId": "retrieveAttachmentRef", 
-                "summary": "Retrieves a 'AttachmentRef' by Id", 
-                "tags": [
-                    "attachmentRef"
-                ], 
-                "parameters": [
-                    {
-                        "required": true, 
-                        "type": "string", 
-                        "name": "id", 
-                        "in": "path", 
-                        "description": "Identifier of the Attachment Ref"
-                    }
-                ], 
-                "responses": {
-                    "200": {
-                        "description": "Ok", 
-                        "schema": {
-                            "items": {
-                                "$ref": "#/definitions/AttachmentRef"
-                            }, 
-                            "type": "array"
-                        }
-                    }, 
-                    "400": {
-                        "description": "Bad Request", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "401": {
-                        "description": "Unauthorized", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "403": {
-                        "description": "Forbidden", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "404": {
-                        "description": "Not Found", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "405": {
-                        "description": "Method Not allowed", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "409": {
-                        "description": "Conflict", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "500": {
-                        "description": "Internal Server Error", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }, 
-            "put": {
-                "operationId": "updateAttachmentRef", 
-                "summary": "Updates a 'AttachmentRef' by Id", 
-                "tags": [
-                    "attachmentRef"
-                ], 
-                "parameters": [
-                    {
-                        "required": true, 
-                        "type": "string", 
-                        "name": "id", 
-                        "in": "path", 
-                        "description": "Identifier of the Attachment Ref"
-                    }, 
-                    {
-                        "schema": {
-                            "$ref": "#/definitions/AttachmentRef_Update"
-                        }, 
-                        "required": true, 
-                        "in": "body", 
-                        "name": "attachmentRef", 
-                        "description": "The Attachment Ref to be updated"
-                    }
-                ], 
-                "responses": {
-                    "200": {
-                        "description": "Updated", 
-                        "schema": {
-                            "$ref": "#/definitions/AttachmentRef"
-                        }
-                    }, 
-                    "400": {
-                        "description": "Bad Request", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "401": {
-                        "description": "Unauthorized", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "403": {
-                        "description": "Forbidden", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "404": {
-                        "description": "Not Found", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "405": {
-                        "description": "Method Not allowed", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "409": {
-                        "description": "Conflict", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "500": {
-                        "description": "Internal Server Error", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }, 
-            "patch": {
-                "operationId": "patchAttachmentRef", 
-                "summary": "Updates partially a 'AttachmentRef' by Id", 
-                "tags": [
-                    "attachmentRef"
-                ], 
-                "parameters": [
-                    {
-                        "required": true, 
-                        "type": "string", 
-                        "name": "id", 
-                        "in": "path", 
-                        "description": "Identifier of the Attachment Ref"
-                    }, 
-                    {
-                        "schema": {
-                            "$ref": "#/definitions/AttachmentRef_Update"
-                        }, 
-                        "required": true, 
-                        "in": "body", 
-                        "name": "attachmentRef", 
-                        "description": "The Attachment Ref to be updated"
-                    }
-                ], 
-                "responses": {
-                    "200": {
-                        "description": "Updated", 
-                        "schema": {
-                            "$ref": "#/definitions/AttachmentRef"
-                        }
-                    }, 
-                    "400": {
-                        "description": "Bad Request", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "401": {
-                        "description": "Unauthorized", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "403": {
-                        "description": "Forbidden", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "404": {
-                        "description": "Not Found", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "405": {
-                        "description": "Method Not allowed", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "409": {
-                        "description": "Conflict", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "500": {
-                        "description": "Internal Server Error", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }, 
-            "delete": {
-                "operationId": "deleteAttachmentRef", 
-                "summary": "Deletes a 'AttachmentRef' by Id", 
-                "tags": [
-                    "attachmentRef"
-                ], 
-                "parameters": [
-                    {
-                        "required": true, 
-                        "type": "string", 
-                        "name": "id", 
-                        "in": "path", 
-                        "description": "Identifier of the Attachment Ref"
-                    }
-                ], 
-                "responses": {
-                    "204": {
-                        "description": "Deleted"
-                    }, 
-                    "400": {
-                        "description": "Bad Request", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "401": {
-                        "description": "Unauthorized", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "403": {
-                        "description": "Forbidden", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "404": {
-                        "description": "Not Found", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "405": {
-                        "description": "Method Not allowed", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "409": {
-                        "description": "Conflict", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }, 
-                    "500": {
-                        "description": "Internal Server Error", 
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        }, 
         "/hub": {
             "post": {
                 "operationId": "registerListener", 
@@ -949,76 +512,14 @@
         }
     }, 
     "definitions": {
-        "AttachmentRef": {
-            "type": "object", 
-            "description": "Attachement reference. An attachment complements the description of an element (for instance a product) through video, pictures...", 
-            "properties": {
-                "id": {
-                    "type": "string"
-                }, 
-                "href": {
-                    "type": "string", 
-                    "description": "URL serving as reference for the attachment"
-                }, 
-                "name": {
-                    "type": "string"
-                }, 
-                "description": {
-                    "type": "string", 
-                    "description": "A narrative text describing the content of the attachment"
-                }, 
-                "url": {
-                    "type": "string"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
-                }
-            }
-        }, 
-        "AttachmentRef_Create": {
-            "type": "object", 
-            "description": "Attachement reference. An attachment complements the description of an element (for instance a product) through video, pictures...\nSkipped properties: id,href", 
-            "properties": {
-                "name": {
-                    "type": "string"
-                }, 
-                "description": {
-                    "type": "string", 
-                    "description": "A narrative text describing the content of the attachment"
-                }, 
-                "url": {
-                    "type": "string"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
-                }
-            }
-        }, 
-        "AttachmentRef_Update": {
-            "type": "object", 
-            "description": "Attachement reference. An attachment complements the description of an element (for instance a product) through video, pictures...\nSkipped properties: id,href", 
-            "properties": {
-                "name": {
-                    "type": "string"
-                }, 
-                "description": {
-                    "type": "string", 
-                    "description": "A narrative text describing the content of the attachment"
-                }, 
-                "url": {
-                    "type": "string"
-                }, 
-                "@referredType": {
-                    "type": "string", 
-                    "description": "The actual type of the target instance when needed for disambiguation."
-                }
-            }
-        }, 
         "TroubleTicket": {
             "type": "object", 
             "description": "A trouble ticket is a record of an issue that is created, tracked, and managed by a trouble ticket management system", 
+            "required": [
+                "description", 
+                "severity", 
+                "ticketType"
+            ], 
             "properties": {
                 "id": {
                     "type": "string", 
@@ -1380,23 +881,23 @@
             "description": "Related Entity reference. Reference to an arbitrary entity from a context entity.", 
             "properties": {
                 "id": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Unique identifier of the related entity"
                 }, 
                 "href": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Hyperlink, a reference to the related entity (e.g. customerBill, productOrder, etc.)"
                 }, 
                 "name": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The name of the related entity if applicable (e.g. name of the customer, name of the bill, name of the product etc...)"
                 }, 
                 "role": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The role of the related entity in the context of the contained resource (e.g. disputedBill, damagedDevice"
                 }, 
                 "@referredType": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "A string. Indicates the type (class) of related entity. For example, Product Order Customer Bill, Payment, etc."
                 }
             }
@@ -1406,15 +907,15 @@
             "description": "The communication channel for example WEB, Call Center", 
             "properties": {
                 "id": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Unique identifier of the channel"
                 }, 
                 "name": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The name of the channel"
                 }, 
                 "@type": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Indicates the (class) type of channel"
                 }
             }
@@ -1424,19 +925,21 @@
             "description": "Holds the status notification reasons and associated date the status changed, populated by the server", 
             "properties": {
                 "status": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The status of the trouble ticket"
                 }, 
                 "changeReason": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The reason why the status changed."
                 }, 
                 "changeDate": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
+                    "format": "date-time",
                     "description": "The date and time the status changed."
                 }, 
                 "@type": {
-                    "$ref": "#/definitions/"
+                    "type": "string",
+                    "description": "Indicates the (class) type of statusChange"
                 }
             }
         }, 
@@ -1445,23 +948,24 @@
             "description": "Extra information about a given entity", 
             "properties": {
                 "id": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Quick identifier of the note"
                 }, 
                 "date": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
+                    "format": "date-time",
                     "description": "The date that the note created"
                 }, 
                 "text": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The text of the note"
                 }, 
                 "author": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "The name of the note author, can be the agent name or any other party that created the note"
                 }, 
                 "@type": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Indicates the (class) type of note"
                 }
             }
@@ -1497,15 +1001,15 @@
             "description": "Represents a relationship between trouble tickets", 
             "properties": {
                 "id": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Unique identifier of the related trouble ticket"
                 }, 
                 "href": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Hyperlink, a reference to the related trouble ticket entity"
                 }, 
                 "type": {
-                    "$ref": "#/definitions/", 
+                    "type": "string", 
                     "description": "Type of the trouble ticket relationship can be isChiled, dependent etc..."
                 }, 
                 "@type": {
@@ -1527,7 +1031,8 @@
                     "description": "Reference of the attached document"
                 }, 
                 "size": {
-                    "$ref": "#/definitions/Decimal", 
+                    "type": "number",
+                    "format": "date-time",
                     "description": "The size in Bytes of the of the document or attachment. If this component contains the embedded data then the size is the size of the embedded data; if it is a reference without the data then it is the size of the referenced document."
                 }, 
                 "name": {
@@ -1560,6 +1065,18 @@
                 }
             }
         }, 
+        "TimePeriod": {
+            "properties": {
+                "startDateTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "endDateTime": {
+                    "format": "date-time",
+                    "type": "string"
+                }
+            }
+        },
         "EventSubscription": {
             "required": [
                 "id", 
