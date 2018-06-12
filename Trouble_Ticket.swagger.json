@@ -768,7 +768,7 @@
                     "items": {
                         "$ref": "#/definitions/Attachment"
                     }, 
-                    "description": "File(s) attached to the trouble ticket. e.g. pictur of broken device, scaning of a bill or charge"
+                    "description": "File(s) attached to the trouble ticket. e.g. picture of broken device, scanning of a bill or charge"
                 }
             }
         }, 
@@ -1011,10 +1011,6 @@
                 "type": {
                     "type": "string", 
                     "description": "Type of the trouble ticket relationship can be isChiled, dependent etc..."
-                }, 
-                "@type": {
-                    "type": "string", 
-                    "description": "The class type of the actual resource (for type extension)."
                 }
             }
         }, 
