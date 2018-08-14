@@ -7,7 +7,7 @@ of an issue or problem identified by a customer or another system. Examples of
 Trouble Ticket API clients include CRM applications, network management or fault
 management systems, or other trouble ticket management systems (e.g. B2B).
 
-To access this API; (the Specification, Postman Collection, Swagger file, Swagger-UI, 
+To access this API; (the Specification, Postman Collection, Swagger file, 
 Reference Implementation, Conformance Profile, and CTK) go to the Open API table at:
 
 https://projects.tmforum.org/wiki/display/API/Open+API+Table
